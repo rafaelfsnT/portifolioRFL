@@ -1,34 +1,56 @@
 'use client';
+
+import { motion } from 'framer-motion';
+
 export default function Sobre() {
     return (
         <section
             id="sobre"
-            className="flex flex-col items-center justify-center pt-20 min-h-screen px-4"
+            className="flex flex-col items-center justify-center py-20 px-4 min-h-screen "
         >
-            <h1 className="text-purple-700 text-[2rem] md:text-[2.5rem] font-bold pb-10">
+            {/* Título */}
+            <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="text-purple-700 text-4xl md:text-5xl font-bold mb-12"
+            >
                 Sobre Mim
-            </h1>
+            </motion.h1>
 
-            <div className="flex flex-col md:flex-row items-center justify-between gap-8 w-full max-w-6xl">
+            {/* Conteúdo */}
+            <div className="flex flex-col md:flex-row items-center gap-10 w-full max-w-6xl">
                 {/* Imagem */}
-                <div className="flex justify-center md:justify-start flex-1">
+                <motion.div
+                    className="flex justify-center flex-1"
+                    initial={{ opacity: 0, x: -50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6 }}
+                >
                     <img
                         src="/perfil.jpg"
-                        alt="Rafael"
-                        className="w-[300px] h-[320px] rounded-full object-cover border-2 border-purple-700"
+                        alt="Foto de perfil"
+                        className="w-[280px] h-[280px] md:w-[320px] md:h-[320px] rounded-full object-cover border-[3px] border-purple-600 shadow-lg"
                     />
-                </div>
+                </motion.div>
 
                 {/* Texto */}
-                <div className="flex-1">
-                    <p className="text-[#9B4DFF] text-[1.1rem] md:text-[1.3rem] leading-7 md:leading-[1.8rem] text-justify px-2 md:px-5 tracking-wide">
-                        Olá! Meu nome é Rafael, sou desenvolvedor brasileiro, apaixonado pela tecnologia e inovação.
-                        Atualmente, estou focado no aprimoramento contínuo das minhas habilidades e no aprendizado de novas
-                        ferramentas e tecnologias. Tenho grande interesse em atuar nas áreas de desenvolvimento Mobile e Web,
-                        sempre buscando criar soluções eficientes e de alta qualidade. Minha missão é contribuir para o
-                        crescimento da tecnologia, oferecendo experiências digitais únicas e funcionalmente avançadas.
+                <motion.div
+                    className="flex-1 text-justify px-2 md:px-5"
+                    initial={{ opacity: 0, x: 50 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6 }}
+                >
+                    <p className="text-gray-700 text-[1.1rem] md:text-[1.25rem] leading-relaxed tracking-wide">
+                        Olá! Meu nome é <span className="text-purple-700 font-semibold">Rafael</span>, sou um desenvolvedor brasileiro apaixonado pela tecnologia e inovação.
+                        Tenho me dedicado ao aprimoramento constante das minhas habilidades técnicas, explorando novas ferramentas e linguagens para criar soluções funcionais e elegantes.
+                        <br /><br />
+                        Me interesso especialmente pelas áreas de desenvolvimento <strong>Web</strong> e <strong>Mobile</strong>, buscando sempre entregar experiências digitais de alto nível.
+                        Acredito que a tecnologia deve ser acessível, eficiente e impactante — e é nisso que concentro meus esforços como desenvolvedor.
+                        <br /><br />
+                        Estou pronto para encarar novos desafios e contribuir com projetos que façam a diferença!
                     </p>
-                </div>
+                </motion.div>
             </div>
         </section>
     );

@@ -1,48 +1,60 @@
 'use client';
 
-export default function Servicos() {
+import { motion } from "framer-motion";
 
+export default function Servicos() {
+    const projetos = [
+        {
+            title: "Calculadora IMC Flutter",
+            image: "/projeto.png",
+            description:
+                "Aplicativo em Flutter para calcular o IMC de uma pessoa. Projeto introdutório com validação de campos vazios e formatos incorretos.",
+            link: "https://github.com/rafaelfsnT/calculateimc-flutter",
+        },
+    ];
     return (
         <section
             id="servicos"
-            className="flex flex-col items-center justify-center pt-20 min-h-screen px-4"
+            className="flex flex-col items-center justify-center pt-20 min-h-screen px-4 "
         >
-            <h1 className="text-purple-700 text-[2rem] md:text-[2.5rem] font-bold pb-10">Serviços</h1>
+            <motion.h1
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="text-purple-700 text-[2.5rem] font-bold pb-4 relative after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-[3px] after:bg-purple-500"
+            >
+                Serviços
+            </motion.h1>
 
-            <div className="flex flex-wrap justify-center gap-6 w-full max-w-6xl">
-                {[
-
-                    {
-                        title: "Calculadora IMC Flutter",
-                        image: "/projeto.png",
-                        description:
-                            "Trabalho com o intuito de calcular o IMC de uma pessoa, no começo das aulas em Flutter. Contém validações de campos vazios e de formatos incorretos.",
-                        link: "https://github.com/rafaelfsnT/calculateimc-flutter",
-                    },
-
-                ].map((servico, index) => (
-                    <div
+            <div className="flex flex-wrap justify-center gap-8 w-full max-w-6xl mt-10">
+                {projetos.map((servico, index) => (
+                    <motion.div
                         key={index}
-                        className="flex flex-col justify-between w-full md:w-[30%] min-h-[480px] bg-[#f7f7f7]  p-5 rounded-xl shadow-lg transition duration-300"
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: index * 0.1 }}
+                        className="flex flex-col justify-between bg-white w-full md:w-[30%] min-h-[500px] p-6 rounded-2xl shadow-lg hover:shadow-xl transition duration-300"
                     >
-                        <h3 className="text-purple-700 mt-2 font-bold text-lg text-center">{servico.title}</h3>
+                        <h3 className="text-purple-700 font-extrabold text-xl text-center mb-2">
+                            {servico.title}
+                        </h3>
                         <img
                             src={servico.image}
                             alt={`Imagem ${index + 1}`}
-                            className="w-full h-[180px] object-cover rounded mt-4 mb-4"
+                            className="w-full h-[180px] object-cover rounded-xl shadow-sm mb-4"
                         />
-                        <p className="text-justify text-purple-700  text-[1.1rem] leading-relaxed mb-4">
+                        <p className="text-purple-800 text-justify text-base leading-relaxed mb-6">
                             {servico.description}
                         </p>
                         <a
                             href={servico.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-block text-white bg-purple-700 hover:bg-purple-800 text-lg py-2 px-6 rounded-full transition duration-300 hover:scale-105 text-center mt-auto"
+                            className="mt-auto bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-center py-3 rounded-full font-semibold hover:scale-105 transition-transform shadow-md"
                         >
-                            Link projeto
+                            Ver Projeto
                         </a>
-                    </div>
+                    </motion.div>
                 ))}
             </div>
         </section>

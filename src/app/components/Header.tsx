@@ -1,26 +1,32 @@
 "use client";
-import Link from "next/link";
-import Image from 'next/image'
-
+import Image from 'next/image';
 import { useState } from "react";
 
-;
 export default function Header() {
-    const [menuOpen, setMenuOpen] = useState(false)
-    const toggleMenu = () => setMenuOpen(!menuOpen)
+    const [menuOpen, setMenuOpen] = useState(false);
+    const toggleMenu = () => setMenuOpen(!menuOpen);
+
     const navLinks = [
         { href: "#sobre", label: "Sobre" },
         { href: "#habilidades", label: "Habilidades" },
         { href: "#servicos", label: "Serviços" },
         { href: "#contato", label: "Contato" },
     ];
-    return (
-        <header className="fixed top-0 w-full bg-white-500 shadow-md z-50">
 
-            <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-                {/* Logo alinhada à esquerda */}
+    const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+        e.preventDefault();
+        const section = document.querySelector(targetId);
+        if (section) {
+            section.scrollIntoView({ behavior: "smooth" });
+        }
+        setMenuOpen(false);
+    };
+
+    return (
+        <header className="fixed top-0 w-full bg-white shadow-md z-50 overflow-x-hidden">
+            <div className="max-w-7xl w-full mx-auto flex items-center justify-between px-4 md:px-6 py-4">
                 <div className="flex-shrink-0">
-                    <Link href="/">
+                    <a href="/">
                         <Image
                             src="/logo.png"
                             alt="Logo"
@@ -29,50 +35,51 @@ export default function Header() {
                             className="cursor-pointer object-contain transition-transform duration-300 hover:scale-105"
                             priority
                         />
-                    </Link>
+                    </a>
                 </div>
 
-                {/* Menu Desktop à direita */}
+                {/* Menu Desktop */}
                 <nav className="hidden md:flex space-x-4 items-center animate-fadeIn">
                     {navLinks.map((link) => (
-                        <Link
+                        <a
                             key={link.href}
                             href={link.href}
+                            onClick={(e) => handleScroll(e, link.href)}
                             className="text-purple-700 text-lg font-medium px-4 py-2 rounded-full transition-all duration-300 transform hover:scale-105 hover:border hover:border-purple-700 hover:bg-white hover:shadow-md"
                         >
                             {link.label}
-                        </Link>
+                        </a>
                     ))}
                 </nav>
 
-                {/* Menu Hamburger - Mobile */}
-                <div
+                {/* Ícone Hamburger */}
+                <button
                     className="md:hidden flex flex-col space-y-1 cursor-pointer"
                     onClick={toggleMenu}
-                    aria-label="Abrir Menu"
+                    aria-label={menuOpen ? "Fechar Menu" : "Abrir Menu"}
+                    type="button"
                 >
                     <span className="w-6 h-0.5 bg-purple-700"></span>
                     <span className="w-6 h-0.5 bg-purple-700"></span>
                     <span className="w-6 h-0.5 bg-purple-700"></span>
-                </div>
+                </button>
             </div>
 
             {/* Menu Mobile */}
             {menuOpen && (
-                <div className="md:hidden relative bg-white shadow-lg px-6 py-4 flex flex-col space-y-3 animate-fadeIn z-40">
+                <nav className="md:hidden fixed top-[64px] left-0 w-full bg-white shadow-lg px-4 py-4 flex flex-col space-y-3 animate-fadeIn z-50">
                     {navLinks.map((link) => (
-                        <Link
+                        <a
                             key={link.href}
                             href={link.href}
-                            onClick={() => setMenuOpen(false)}
+                            onClick={(e) => handleScroll(e, link.href)}
                             className="text-purple-700 font-medium text-lg px-4 py-2 rounded-full transition-all duration-300 transform hover:scale-105 hover:border hover:border-purple-700 hover:bg-white hover:shadow-md"
                         >
                             {link.label}
-                        </Link>
+                        </a>
                     ))}
-                </div>
+                </nav>
             )}
-
         </header>
     );
 }
