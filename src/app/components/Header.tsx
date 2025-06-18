@@ -26,7 +26,7 @@ export default function Header() {
         <header className="fixed top-0 w-full bg-white shadow-md z-50 overflow-x-hidden">
             <div className="max-w-7xl w-full mx-auto flex items-center justify-between px-4 md:px-6 py-4">
                 <div className="flex-shrink-0">
-                    <a href="/">
+                    <a href="#inicio" onClick={(e) => handleScroll(e, "#inicio")}>
                         <Image
                             src="/logo.png"
                             alt="Logo"
@@ -45,7 +45,7 @@ export default function Header() {
                             key={link.href}
                             href={link.href}
                             onClick={(e) => handleScroll(e, link.href)}
-                            className="text-purple-700 text-lg font-medium px-4 py-2 rounded-full transition-all duration-300 transform hover:scale-105 hover:border hover:border-purple-700 hover:bg-white hover:shadow-md"
+                            className="text-purple-700 text-lg font-medium px-4 py-2 rounded-full transition-all duration-300 transform hover:scale-105 hover:bg-purple-700 hover:text-white hover:shadow-md"
                         >
                             {link.label}
                         </a>
@@ -73,7 +73,7 @@ export default function Header() {
                             key={link.href}
                             href={link.href}
                             onClick={(e) => handleScroll(e, link.href)}
-                            className="text-purple-700 font-medium text-lg px-4 py-2 rounded-full transition-all duration-300 transform hover:scale-105 hover:border hover:border-purple-700 hover:bg-white hover:shadow-md"
+                            className="text-purple-700 font-medium text-lg px-4 py-2 rounded-full transition-all duration-300 transform hover:scale-105 hover:bg-purple-700 hover:text-white hover:shadow-md"
                         >
                             {link.label}
                         </a>
