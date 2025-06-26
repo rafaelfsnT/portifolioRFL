@@ -11,6 +11,15 @@ export default function Servicos() {
                 "Aplicativo em Flutter para calcular o IMC de uma pessoa. Projeto introdutório com validação de campos vazios e formatos incorretos.",
             link: "https://github.com/rafaelfsnT/calculateimc-flutter",
         },
+        // 642x562
+        {
+            title: "Projeto Hackathon",
+            image: "/projeto2.png",
+            description:
+                "Projeto Hackathon de Avaliar Provas feito com Flutter e Spring Boot, gerando API e sendo consumidas dentro da aplicação Flutter. Aplicativo com tela de login, com validações de permissões do usuário.",
+            link: "https://github.com/rafaelfsnT/hackathon2K25",
+        },
+
     ];
     return (
         <section
