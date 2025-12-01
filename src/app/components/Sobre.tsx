@@ -28,7 +28,7 @@ export default function Sobre() {
                     transition={{ duration: 0.6 }}
                 >
                     <img
-                        src="/perfil.jpg"
+                        src="/perfil.jpeg"
                         alt="Foto de perfil"
                         className="w-[280px] h-[280px] md:w-[320px] md:h-[320px] rounded-full object-cover border-[3px] border-purple-600 shadow-lg"
                     />
