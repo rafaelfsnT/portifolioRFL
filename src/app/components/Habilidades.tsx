@@ -1,7 +1,7 @@
 'use client';
 
-import { faCss3Alt, faFlutter, faJsSquare, faReact } from '@fortawesome/free-brands-svg-icons';
-import { faLightbulb, faUsers, faSeedling, faBullseye } from '@fortawesome/free-solid-svg-icons';
+import { faCss3Alt, faFlutter, faJsSquare, faReact, faTypo3 } from '@fortawesome/free-brands-svg-icons';
+import { faLightbulb, faUsers, faSeedling, faBullseye, faFire } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { motion } from 'framer-motion';
 
@@ -9,7 +9,8 @@ export default function Habilidades() {
     const skills = [
         { name: "CSS", icon: faCss3Alt, level: 70 },
         { name: "React", icon: faReact, level: 75 },
-        { name: "JavaScript", icon: faJsSquare, level: 80 },
+        { name: "JavaScript", icon: faJsSquare, level: 75 },
+        {name: "Firebase", icon: faFire, level: 80},
         { name: "Flutter", icon: faFlutter, level: 85 },
     ];
 

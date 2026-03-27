@@ -7,17 +7,17 @@ export default function Servicos() {
   const projetos = [
     {
       title: "Projeto Hackathon",
-      image: "/projeto2.png",
+      image: "/projeto1.png",
       description:
         "Projeto Hackathon de Avaliar Provas feito com Flutter e Spring Boot, gerando API e consumida dentro do aplicativo Flutter. Inclui login e permissões de usuário.",
       link: "https://github.com/rafaelfsnT/hackathon2K25",
     },
     {
-      title: "Projeto Ecclesia",
-      image: "/projeto3.png",
+      title: "Kairos Ecclesiare",
+      image: "/projetoKE.png",
       description:
-        "Projeto Ecclesia feito com Flutter e Firebase, permitindo gerenciar escalas de missas e agendamentos de uma igreja católica.",
-      link: "https://github.com/rafaelfsnT/projeto-ecclesia",
+        "Aplicativo Kairos Ecclesiare desenvolvido com Flutter e Firebase, permitindo gerenciar escalas de missas e agendamentos. Inclui autenticação, notificações e interface intuitiva para usuários e administradores.",
+      link: "https://play.google.com/store/apps/details?id=com.rafael.kairosecclesiare",
     },
   ];
 
@@ -38,7 +38,8 @@ export default function Servicos() {
       <div className="h-[3px] w-24 bg-purple-500 mx-auto mt-3 rounded-full"></div>
 
       <p className="text-purple-900 mt-4 text-lg opacity-80 max-w-xl text-center">
-        Uma coleção dos meus projetos desenvolvidos com Flutter, Next.js e Spring Boot.
+        Uma coleção dos meus projetos desenvolvidos com Flutter, Next.js e
+        Spring Boot.
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 w-full max-w-7xl mt-14">

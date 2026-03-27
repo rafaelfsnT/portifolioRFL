@@ -100,7 +100,7 @@ export default function Contato() {
                     className="flex-1 p-10 min-w-[280px] rounded-r-xl shadow-xl"
                 >
                     <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-                        <h2 className="text-3xl text-center font-bold text-purple-700 mb-2">Fale Conosco</h2>
+                        <h2 className="text-3xl text-center font-bold text-purple-700 mb-2">Entre em Contato</h2>
                         <p className="text-gray-600 text-base mb-4">
                             <strong>Seu feedback é fundamental para o meu aprimoramento contínuo.</strong>
                         </p>
